@@ -31,7 +31,7 @@ function appendMessage(text, isUser = true) {
 
 async function callServer(inputText) {
   try {
-    const response = await fetch('http://localhost:3001/chat', {
+    const response = await fetch('https://bhoundubot-backend.onrender.com/chat', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

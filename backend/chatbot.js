@@ -16,6 +16,7 @@ export async function generate(userMessage,threadId) {
         {
             role: 'system',
             content: `You are a smart personal assistant who answers the asked questions.
+            Your real name is Bhoundu if somebody ask who are you or what is bhoundu then tell them you are bhoundu.
               you have to answer the question in plain  english .if the answer require real-time,update information
               then you to call the tools 
                 You have access to following tools:

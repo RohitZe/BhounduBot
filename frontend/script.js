@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatContainer = document.querySelector('#chat-container');
   const askBtn = document.querySelector('#ask-btn');
 
-  // Debug element selection
   console.log('Input element:', input);
   console.log('Ask button element:', askBtn);
   console.log('Chat container:', chatContainer);
@@ -30,10 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('threadId', threadId);
   }
 
-  // Add event listeners with proper checks
+
   input.addEventListener('keyup', handleEnter);
-  
-  // Add both click and touch events for mobile compatibility
+
   askBtn.addEventListener('click', handleAsk);
   askBtn.addEventListener('touchend', function(e) {
     e.preventDefault();
@@ -115,10 +113,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function handleAsk() {
-    console.log('Ask button clicked/touched'); // Debug log
+    console.log('Ask button clicked/touched'); 
     const text = input?.value.trim();
     if (!text) {
-      console.log('No text to send'); // Debug log
+      console.log('No text to send'); 
       return;
     }
     generate(text);

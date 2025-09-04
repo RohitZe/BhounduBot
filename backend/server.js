@@ -2,7 +2,9 @@ import express from 'express'
 import { generate } from './chatbot.js'
 import cors from 'cors'
 const app = express()
-const port = 3001
+
+
+const PORT = process.env.PORT || 3001;
 
 app.use(cors())
 app.use(express.json())
@@ -23,5 +25,5 @@ app.post('/chat', async (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
+  console.log(`Server is running on port ${PORT}`)
 })

@@ -11,7 +11,7 @@ app.use(express.json())
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to sharma ji ka chota bot hai ji yo to')
+  res.send('welcome to my server')
 })
 
 

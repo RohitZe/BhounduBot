@@ -1,10 +1,13 @@
-import express from 'express'
-import { generate } from './chatbot.js'
-import cors from 'cors'
-const app = express()
+const express = require("express");
+const app = express();
+const { generate } = require("./chatbot");
+const cors = require("cors");
+const connectToDatabase = require('./database/database.js');
+const authRoutes=require('./routes.js');
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001
+
 
 app.use(cors())
 app.use(express.json())
@@ -13,6 +16,9 @@ app.use(express.json())
 app.get('/', (req, res) => {
   res.send('welcome to my server')
 })
+
+app.use('/users', authRoutes);
+
 
 
 app.post('/chat', async (req, res) => {
@@ -24,6 +30,20 @@ app.post('/chat', async (req, res) => {
    res.json({ message: result })
 })
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
-})
+
+
+async function startServer() {
+    try {
+        await connectToDatabase();  
+        console.log("Database connected")
+
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+    } catch (error) {
+        console.error("Failed to start server: DB connection error", error);
+        process.exit(1);
+    }
+}
+
+startServer();

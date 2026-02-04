@@ -1,0 +1,28 @@
+require("dotenv").config();
+module.exports.config = {
+  port: process.env.PORT || 50111,
+  serverUrl: process.env.SERVER_URL,
+  envoirment: process.env.ENVOIRMENT,
+  developmentUrl: process.env.DEVELOPMENT_URI,
+  productionUrl: process.env.MONGO_URI,
+  production: "PRODUCTION",
+  databaseURL: process.env.MONGODB_URI,
+  jwtSecretKey: process.env.JWT_SECRET_KEY,
+  jwtExpireIn: process.env.JWT_EXPIRE_IN,
+  ADMIN_DOMAIN_URL: process.env.ADMIN_DOMAIN_URL,
+  USER_DOMAIN_URL: process.env.USER_DOMAIN_URL,
+  Gmail: "gmail",
+  PROVIDER_MAIL: process.env.PROVIDER_MAIL,
+  PROVIDER_PASS: process.env.PROVIDER_PASS,
+  SENDER_EMAIL: process.env.SENDER_EMAIL,
+  EMAIL_HOST: process.env.EMAIL_HOST,
+  EMAIL_PORT: process.env.EMAIL_PORT,
+  EMAIL_SECURE: process.env.EMAIL_SECURE,
+  RESET_PASSWORD: "Reset Password",
+  AWS_ACCESS_KEY: process.env.AMAZON_ACCESS_KEY,
+  AWS_SECRET_KEY: process.env.AMAZON_SECRET_KEY,
+  AWS_REGION: process.env.AMAZON_REGION,
+  AWS_BUCKET_NAME: process.env.BUCKET_NAME,
+  BIT_BUCKET_DOMAIN: process.env.BIT_BUCKET_DOMAIN,
+  bucketDomain: process.env.bucketDomain
+};

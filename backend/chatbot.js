@@ -2,7 +2,7 @@ import readline from 'node:readline/promises';
 import Groq from 'groq-sdk';
 import { tavily } from '@tavily/core';
 import NodeCache from 'node-cache';
-
+import 'dotenv/config';
 
 const tvly = tavily({ apiKey: process.env.TAVILY_API_KEY });
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
@@ -95,7 +95,6 @@ export async function generate(userMessage,threadId) {
             const toolCalls = completions.choices[0].message.tool_calls;
 
             if (!toolCalls) {
-                //here we end the chatbot response correct place to add cache
                 myCache.set(threadId,messages);
                 return completions.choices[0].message.content
             }
@@ -133,7 +132,6 @@ async function webSearch({ query }) {
 
     return finalResult;
 }
-
 
 
 
